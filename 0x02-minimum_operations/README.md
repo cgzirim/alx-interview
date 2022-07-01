@@ -10,4 +10,4 @@ Number of operations: `6`
 [test](https://github.com/iChigozirim/alx-interview/tree/main/0x02-minimum_operations/test) - Test provided by Holberton School.
 
 ## Solution
-[0-minoperations.py]() - A Python function that calculates the fewest number of operations needed to result in exactly `n` `H` characters in the file.
+[0-minoperations.py](https://github.com/iChigozirim/alx-interview/blob/main/0x02-minimum_operations/0-minoperations.py) - A Python function that calculates the fewest number of operations needed to result in exactly `n` `H` characters in the file.
