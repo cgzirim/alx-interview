@@ -11,15 +11,14 @@ def minOperations(n: int) -> int:
 
     # Copy all text
     copied_text = text
-    cmd_count += 1
 
     for i in range(n):
+        if len(text) == n:
+            return cmd_count
+
         # Paste all copied text
         text = text + copied_text
         cmd_count += 1
-
-        if len(text) == n:
-            return cmd_count
 
         if len(text) != 1 and n % len(text) == 0:
             # Copy all text
