@@ -7,7 +7,7 @@ In a text file, there is a single character `H`. Your text editor can execute on
 Number of operations: `6`
 
 ## Test
-[test]() - Test provided by Holberton School.
+[test](https://github.com/iChigozirim/alx-interview/tree/main/0x02-minimum_operations/test) - Test provided by Holberton School.
 
 ## Solution
-[0-minoperations.py]() - A function written in Python that calculates the fewest number of operations needed to result in exactly `n` `H` characters in the file.
+[0-minoperations.py]() - A Python function that calculates the fewest number of operations needed to result in exactly `n` `H` characters in the file.
