@@ -68,3 +68,4 @@ if __name__ == "__main__":
         for k, v in status_code.items():
             if v != 0:
                 print(f"{k}: {v}")
+
