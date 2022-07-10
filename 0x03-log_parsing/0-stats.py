@@ -27,12 +27,12 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
+            count += 1
             data = line.split(" ")
             try:
                 file_size += int(data[-1])
                 if data[-2] in status_codes.keys():
                     status_codes[data[-2]] += 1
-                count += 1
             except (IndexError, ValueError):
                 pass
 
