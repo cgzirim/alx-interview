@@ -20,10 +20,10 @@ if __name__ == "__main__":
 
     def print_stat(status_codes, file_size):
         """Prints File size and status code count."""
-        print(f"File size: {file_size}")
+        print("File size: {}".format(file_size))
         for k, v in status_codes.items():
             if v != 0:
-                print(f"{k}: {v}")
+                print("{}: {}".format(k, v))
 
     try:
         for line in sys.stdin:
