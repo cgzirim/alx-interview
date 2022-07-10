@@ -32,11 +32,10 @@ if __name__ == "__main__":
                 if data[-2] in status_codes.keys():
                     count += 1
                     status_codes[data[-2]] += 1
+                    if (count % 10) == 0:
+                        print_stat(status_codes, file_size)
             except:
                 continue
-
-            if (count % 10) == 0:
-                print_stat(status_codes, file_size)
         print_stat(status_codes, file_size)
     except KeyboardInterrupt:
         print_stat(status_codes, file_size)
