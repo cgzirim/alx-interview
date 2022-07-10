@@ -1,44 +1,38 @@
 #!/usr/bin/python3
-"""Reads stdin line by line and computes metrics."""
+"""Log parsing
+"""
+
 import sys
 
 
-if __name__ == "__main__":
+filesize, count = 0, 0
+codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
+stats = {k: 0 for k in codes}
 
-    file_size, count = 0, 0
-    status_code = {
-        "200": 0,
-        "301": 0,
-        "400": 0,
-        "401": 0,
-        "403": 0,
-        "404": 0,
-        "405": 0,
-        "500": 0,
-    }
 
-    try:
-        for line in sys.stdin:
-            count += 1
-            data = line.split(" ")
-            try:
-                file_size += int(data[-1])
-                if data[-2] in status_code.keys():
-                    status_code[data[-2]] += 1
-            except (IndexError, ValueError):
-                continue
+def print_stats(stats: dict, file_size: int) -> None:
+    print("File size: {:d}".format(filesize))
+    for k, v in sorted(stats.items()):
+        print("{}: {}".format(k, v))
 
-            if (count % 10) == 0:
-                print(f"File size: {file_size}")
-                for k, v in status_code.items():
-                    if v != 0:
-                        print(f"{k}: {v}")
-            print(f"File size: {file_size}")
-            for k, v in status_code.items():
-                if v != 0:
-                    print(f"{k}: {v}")
-    except KeyboardInterrupt:
-        print(f"File size: {file_size}")
-        for k, v in status_code.items():
-            if v != 0:
-                print(f"{k}: {v}")
+
+try:
+    for line in sys.stdin:
+        count += 1
+        data = line.split()
+        try:
+            status_code = data[-2]
+            if status_code in stats:
+                stats[status_code] += 1
+        except BaseException:
+            pass
+        try:
+            filesize += int(data[-1])
+        except BaseException:
+            pass
+        if count % 10 == 0:
+            print_stats(stats, filesize)
+    print_stats(stats, filesize)
+except KeyboardInterrupt:
+    print_stats(stats, filesize)
+    raise
