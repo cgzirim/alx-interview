@@ -63,4 +63,4 @@ KeyboardInterrupt
 [test](https://github.com/iChigozirim/alx-interview/tree/main/0x03-log_parsing/test) - Test provided by Holberton School.
 
 ## Solution
-[0-stats.py]() - A Python script reads `stdin` line by line and computes metrics
+[0-stats.py](https://github.com/iChigozirim/alx-interview/blob/main/0x03-log_parsing/0-stats.py) - A Python script reads `stdin` line by line and computes metrics
