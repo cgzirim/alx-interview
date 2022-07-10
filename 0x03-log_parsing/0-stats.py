@@ -33,6 +33,10 @@ if __name__ == "__main__":
                 for k, v in status_code.items():
                     if v != 0:
                         print(f"{k}: {v}")
+            print(f"File size: {file_size}")
+            for k, v in status_code.items():
+                if v != 0:
+                    print(f"{k}: {v}")
     except KeyboardInterrupt:
         print(f"File size: {file_size}")
         for k, v in status_code.items():
