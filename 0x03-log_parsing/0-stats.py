@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Reads stdin line by line and computes metrics."""
+from re import S
 import sys
 from traceback import print_stack
 
@@ -27,18 +28,20 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
-            count += 1
             data = line.split(" ")
             try:
                 file_size += int(data[-1])
                 if data[-2] in status_codes.keys():
                     status_codes[data[-2]] += 1
+                count += 1
             except (IndexError, ValueError):
                 pass
 
             if (count % 10) == 0:
                 print_stat(status_codes, file_size)
-        print_stat(status_codes, file_size)
+        #print_stat(status_codes, file_size)
     except KeyboardInterrupt:
         print_stat(status_codes, file_size)
         raise
+    else:
+        print_stat(status_codes, file_size)
