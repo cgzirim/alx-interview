@@ -60,7 +60,7 @@ KeyboardInterrupt
 ```
 
 ## Test
-[]() - Test provided by Holberton School.
+[test](https://github.com/iChigozirim/alx-interview/tree/main/0x03-log_parsing/test) - Test provided by Holberton School.
 
 ## Solution
 [0-stats.py]() - A Python script reads `stdin` line by line and computes metrics
