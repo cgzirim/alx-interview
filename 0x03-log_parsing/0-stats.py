@@ -36,7 +36,9 @@ if __name__ == "__main__":
                         print_stat(status_codes, file_size)
             except:
                 continue
-        print_stat(status_codes, file_size)
+        
     except KeyboardInterrupt:
         print_stat(status_codes, file_size)
         raise
+    else:
+        print_stat(status_codes, file_size)
