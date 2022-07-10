@@ -8,7 +8,7 @@ if __name__ == "__main__":
     def print_stat(status_codes, file_size):
         """Prints File size and status code count."""
         print("File size: {}".format(file_size))
-        for k, v in status_codes.items():
+        for k, v in sorted(status_codes.items()):
             if v != 0:
                 print("{}: {}".format(k, v))
 
@@ -36,9 +36,7 @@ if __name__ == "__main__":
                         print_stat(status_codes, file_size)
             except:
                 continue
-        
+        print_stat(status_codes, file_size)
     except KeyboardInterrupt:
         print_stat(status_codes, file_size)
         raise
-    else:
-        print_stat(status_codes, file_size)
