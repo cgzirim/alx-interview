@@ -10,8 +10,6 @@ def validUTF8(data):
     for integer in data:
         result = chardet.detect(chr(integer).encode("utf-8"))
         encoding = result["encoding"]
-        if encoding == "ascii" or encoding == 'utf-8':
-            pass
-        else:
+        if encoding != "ascii":
             return False
     return True
