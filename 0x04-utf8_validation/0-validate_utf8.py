@@ -9,8 +9,8 @@ def validUTF8(data: List) -> bool:
     Otherwise, return False.
     """
     for integer in data:
-        result = chardet.detect(chr(integer).encode('utf-8'))
-        encoding = result['encoding']
-        if encoding != 'ascii':
+        result = chardet.detect(chr(integer).encode("utf-8"))
+        encoding = result["encoding"]
+        if encoding != "ascii":
             return False
     return True
