@@ -10,7 +10,7 @@ def validUTF8(data):
     for integer in data:
         result = chardet.detect(chr(integer).encode("utf-8"))
         # print(result)
-        if result['confidence'] < 80:
+        if result['confidence'] < 70:
             return True
         encoding = result["encoding"]
         if encoding != "ascii":
