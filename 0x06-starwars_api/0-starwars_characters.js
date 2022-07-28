@@ -8,12 +8,16 @@ if (process.argv.length > 2) {
   request(API_URL, (err, resp, body) => {
     if (err) console.log(err);
     const charactersURL = JSON.parse(body).characters;
+    const charactersName = charactersURL.map(
+      url => new Promise((resolve, reject) => {
+        request(url, (err, resp, body) => {
+          if (err) reject(err);
 
-    for (let i = 0; i < charactersURL.length; i++) {
-      request(charactersURL[i], (err, resp, body) => {
-        if (err) console.log(err);
-        console.log(JSON.parse(body).name);
-      });
-    }
+          resolve(JSON.parse(body).name);
+        });
+      }));
+    Promise.all(charactersName)
+      .then(names => console.log(names.join('\n')))
+      .catch(allErr => console.log(allErr));
   });
 }
