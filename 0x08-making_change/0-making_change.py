@@ -8,8 +8,10 @@ def makeChange(coins, total):
         - coins: a  list of values of coins in your possession
         - total: given amount to meet.
     """
-    if not total or not coins or total == 0:
+    if total <= 0:
         return 0
+    if coins is None:
+        return -1
 
     for coin in sorted(coins, reverse=True):
         for cn in sorted(coins, reverse=True):
