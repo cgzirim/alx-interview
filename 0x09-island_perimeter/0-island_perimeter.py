@@ -20,7 +20,7 @@ def island_perimeter(grid):
                     est = grid[i][j + 1]
                     wst = grid[i][j - 1]
                 except IndexError:
-                    perimeter += 1
+                    pass
 
                 for direction in [nth, sth, est, wst]:
                     if direction == 0:
