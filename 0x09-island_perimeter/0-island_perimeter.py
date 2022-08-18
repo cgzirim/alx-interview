@@ -14,16 +14,12 @@ def island_perimeter(grid):
     for i in range(col):
         for j in range(row):
             if grid[i][j] == 1:
-                try:
-                    nth = grid[i - 1][j]
-                    sth = grid[i + 1][j]
-                    est = grid[i][j + 1]
-                    wst = grid[i][j - 1]
-                except IndexError:
-                    pass
-
-                for direction in [nth, sth, est, wst]:
-                    if direction == 0:
-                        perimeter += 1
-
+                if i == 0 or grid[i - 1][j] == 0:
+                    perimeter += 1
+                if j == 0 or grid[i][j - 1] == 0:
+                    perimeter += 1
+                if i == len(grid) - 1 or grid[i + 1][j] == 0:
+                    perimeter += 1
+                if j == len(grid[i]) - 1 or grid[i][j + 1] == 0:
+                    perimeter += 1
     return perimeter
